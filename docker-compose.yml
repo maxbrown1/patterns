@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  gateway:
+    build:
+      context: gateway/docker/development/nginx
+    ports:
+      - "8012:8077"
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: api/docker/
+      dockerfile: development/nginx/Dockerfile
+    volumes:
+      - ./api:/app
+    depends_on:
+      - api-php-fpm
+
+  api-php-fpm:
+    build:
+      context: api/docker/
+      dockerfile: development/php-fpm/Dockerfile
+    volumes:
+      - ./api:/app
+    env_file:
+      - ./.env.dev
+
+  api-php-cli:
+    build:
+      context: api/docker
+      dockerfile: development/php-cli/Dockerfile
+    volumes:
+      - ./api:/app
+    env_file:
+      - ./.env.dev
+
+  api-postgres:
+    image: postgres:14.1-alpine
+    env_file:
+      - ./.env.dev
+    volumes:
+      - api-patterns-postgres:/var/lib/postgresql/data
+    ports:
+      - "1661:5432"
+volumes:
+  api-patterns-postgres:

@@ -1,0 +1,49 @@
+{
+  "name": "maxbrown1/patterns",
+  "description": "Examples of programming patterns are described here",
+  "type": "project",
+  "license": "BSD-3",
+  "authors": [
+    {
+      "name": "Maxim Rodionov",
+      "email": "maxbrown1@yandex.ru"
+    }
+  ],
+  "config": {
+    "process-timeout": 0,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "lint": "phplint",
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "console": "php bin/app.php --ansi",
+    "psalm": "psalm"
+  },
+  "require": {
+    "php": "^8.0",
+    "ext-json": "*",
+    "php-di/php-di": "6.3.5",
+    "ramsey/uuid": "^4.0",
+    "slim/psr7": "^1.5",
+    "slim/slim": "^4.9",
+    "symfony/console": "^5.0",
+    "webmozart/assert": "^1.6.0",
+    "symfony/cache": "^6.0",
+    "laminas/laminas-config-aggregator": "^1.2",
+    "j4mie/idiorm": "^1.5",
+    "robmorgan/phinx": "^0.12",
+    "jms/serializer": "3.17.1"
+  },
+  "require-dev": {
+    "overtrue/phplint": "^1.2",
+    "roave/security-advisories": "dev-master",
+    "squizlabs/php_codesniffer": "^3.5",
+    "vimeo/psalm": "^3.8"
+  }
+}

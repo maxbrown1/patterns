@@ -1,0 +1,5 @@
+.env.dev
+.idea
+/.docker-images-before
+/.docker-images-after
+.env
