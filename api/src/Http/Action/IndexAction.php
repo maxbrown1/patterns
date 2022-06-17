@@ -21,7 +21,7 @@ class IndexAction implements RequestHandlerInterface
     {
         $index = new stdClass();
 
-        $index->title = "Hello World";
+        $index->title = "Hello World!";
 
         return new JsonResponse($index);
     }
